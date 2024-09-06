@@ -3,7 +3,7 @@
 std::string truncateString(const std::string& str, size_t max_length = 10)
 {
 	if (str.length() > max_length)
-		return str.substr(0, max_length);
+		return str.substr(0, max_length - 1 ) + ".";
 	return str;
 	}
 
