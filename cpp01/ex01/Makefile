@@ -1,24 +1,25 @@
-NAME = philo
-SRCS = srcs/main.c srcs/check_args.c srcs/utils_func.c srcs/life_of_philo.c srcs/process_game.c 
-INCLUDE = includes
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -std=c++98
-OBJS = $(SRCS:.c=.o)
+SRC = main.cpp\
+	Zombie.cpp\
+	zombieHorde.cpp
+
+OBJ = $(SRC:.cpp=.o)
+CC = g++
+RM = rm -f
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+
+NAME = zombie
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
-
-%.o: %.c $(INCLUDE)
-	$(CC) -c $(CFLAGS) -o $@ $< -I $(INCLUDE)
+$(NAME): $(OBJ)
+	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	rm -f $(OBJS)
+	$(RM) $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
-re: fclean all
+re: fclean $(NAME)
 
 .PHONY: all clean fclean re

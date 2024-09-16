@@ -3,6 +3,7 @@
 PhoneBook::PhoneBook()
 {
 	num_of_contacts = 0;
+	oldest_index = 0;
 }
 
 PhoneBook::~PhoneBook()
@@ -43,26 +44,21 @@ void PhoneBook::displayContacts(int index)
 	}
 }
 
- void PhoneBook::addContact(std::string first_name, std::string last_name, std::string nick_name,
+void PhoneBook::addContact(std::string first_name, std::string last_name, std::string nick_name,
 			std::string phone_number, std::string darkest_secret)
 {
-	 int current_index = num_of_contacts % 8;
+	int current_index;
+	if (num_of_contacts < 8) {
+		current_index = num_of_contacts;
+	} else {
+		current_index = oldest_index;
+		oldest_index = (oldest_index + 1) % 8;
+	}
+	contacts[current_index].setFirstName(first_name);
+	contacts[current_index].setLastName(last_name);
+	contacts[current_index].setNickname(nick_name);
+	contacts[current_index].setPhoneNumber(phone_number);
+	contacts[current_index].setDarkestSecret(darkest_secret);
 	if (num_of_contacts < 8)
-	{
-		contacts[num_of_contacts].setFirstName(first_name);
-		contacts[num_of_contacts].setLastName(last_name);
-		contacts[num_of_contacts].setNickname(nick_name);
-		contacts[num_of_contacts].setPhoneNumber(phone_number);
-		contacts[num_of_contacts].setDarkestSecret(darkest_secret);
 		num_of_contacts++;
-	}
-	else
-	{
-		contacts[current_index].setFirstName(first_name);
-		contacts[current_index].setLastName(last_name);
-		contacts[current_index].setNickname(nick_name);
-		contacts[current_index].setPhoneNumber(phone_number);
-		contacts[current_index].setDarkestSecret(darkest_secret);
-		current_index++;
-	}
 }

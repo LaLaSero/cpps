@@ -12,6 +12,7 @@ class PhoneBook
 {
 	private:
 		int	num_of_contacts;
+		int oldest_index;
 	public:
 		PhoneBook();
 		~PhoneBook();

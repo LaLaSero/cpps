@@ -14,7 +14,8 @@ std::string getCommand(std::string message)
 	while (command.empty())
 	{
 		std::cout << message;
-		std::getline(std::cin, command);
+		if (!std::getline(std::cin, command))
+			std::exit(1);
 	}
 	return command;
 }
