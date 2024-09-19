@@ -3,7 +3,7 @@ SRC = main.cpp\
 	zombieHorde.cpp
 
 OBJ = $(SRC:.cpp=.o)
-CC = g++
+CC = c++
 RM = rm -f
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 

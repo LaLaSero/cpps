@@ -1,12 +1,14 @@
-SRC = file.cpp\
-	bbbb.cpp
+SRC = main.cpp\
+	HumanA.cpp\
+	HumanB.cpp\
+	Weapon.cpp\
 
 OBJ = $(SRC:.cpp=.o)
-CC = g++
+CC = c++
 RM = rm -f
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = dream
+NAME = battle
 
 all: $(NAME)
 

@@ -1,6 +1,7 @@
 SRC = main.cpp\
-	PhoneBook.cpp\
-	Contact.cpp
+PhoneBook.cpp\
+Contact.cpp
+
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
 RM = rm -f
